@@ -1,5 +1,9 @@
 #heading {
     color: green;
-    background-color: yellowgreen;
+    text-align:center;
+}
+
+.demo {
+    background-color: greenyellow;
     text-align:center;
 }

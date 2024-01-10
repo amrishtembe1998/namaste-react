@@ -1,9 +1,17 @@
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const heading = React.createElement(
-  "h1",
-  { id: "heading" },
-  "Hello React world!"
+const TopHeading = () => <h1 id="heading">Hello React world!🚀</h1>;
+const BottomHeading = () => {
+  return <h3 id="heading">This is ReactJS my dear friends</h3>;
+};
+
+const HeadingComponent = () => (
+  <div className="demo">
+    <TopHeading />
+    <BottomHeading />
+  </div>
 );
 
-root.render(heading);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<HeadingComponent />);

@@ -2,10 +2,30 @@
   "name": "namaste_react",
   "version": "1.0.0",
   "description": "Namaste React by Akshay Saini",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amrishtembe1998/namaste-react.git"
+  },
+  "author": "Amrish Tembe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amrishtembe1998/namaste-react/issues"
+  },
+  "homepage": "https://github.com/amrishtembe1998/namaste-react#README.md",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
 }
