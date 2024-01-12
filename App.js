@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import restaurants from "./utils/mockData";
+import Header from "./components/Header";
+import Body from "./components/Body";
 
-const TopHeading = () => <h1 id="heading">Hello React world!🚀</h1>;
-const BottomHeading = () => {
-  return <h3 id="heading">This is ReactJS my dear friends</h3>;
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Body restData={restaurants} />
+    </div>
+  );
 };
 
-const HeadingComponent = () => (
-  <div className="demo">
-    <TopHeading />
-    <BottomHeading />
-  </div>
-);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeadingComponent />);
+root.render(<AppLayout />);
