@@ -7,6 +7,7 @@
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },
+  "proxy":"http://localhost:1234/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/amrishtembe1998/namaste-react.git"

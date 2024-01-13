@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const [restaurant, setRestaurant] = useState([]);
+  const [restaurants, setRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
+  const [searchText, setSearchText] = useState("");
   useEffect(() => {
     fetchData();
   }, []);
@@ -14,35 +16,54 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.0000992&lng=73.2905413&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(
-      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+    setRestaurants(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    const dataToset = await json?.data?.cards[1]?.card?.card?.gridElements
-      ?.infoWithStyle?.restaurants;
-    setRestaurant(dataToset);
+    setFilteredRestaurants(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
-  if (restaurant.length === 0) {
-    return <Shimmer />;
-  }
-
-  return (
+  return restaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            className="search-btn"
+            onClick={() => {
+              const filteredRestaurants = restaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredRestaurants(filteredRestaurants);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
-            const filteredRestaurants = restaurant.filter(
+            const filteredRestaurants = restaurants.filter(
               (res) => res.info.avgRating >= 4.4
             );
-            setRestaurant(filteredRestaurants);
+            setFilteredRestaurants(filteredRestaurants);
           }}
         >
           Top Rated Restaurants
         </button>
       </div>
       <div className="res-container">
-        {restaurant.map((restaurant) => {
+        {filteredRestaurants.map((restaurant) => {
           return (
             <RestaurantCard key={restaurant.info.id} restData={restaurant} />
           );
