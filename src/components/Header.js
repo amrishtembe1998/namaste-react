@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [btnStatus, setBtnStatus] = useState("Login");
   useEffect(() => {
-    console.log("useEffect called!");
+    console.log("useEffect called from Header!");
   }, [btnStatus]);
   const onClickHandler = () => {
     btnStatus === "Login" ? setBtnStatus("Logout") : setBtnStatus("Login");

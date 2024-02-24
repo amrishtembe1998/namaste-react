@@ -1,5 +1,5 @@
-import Header from "./Header";
-
+import User from "./User";
+import { Link } from "react-router-dom";
 const About = () => {
   return (
     <>
@@ -9,7 +9,8 @@ const About = () => {
           This is Namaste React course. Trying to learn React concepts using
           this project.
         </h3>
-        <a href="/">Go back to homepage</a>
+        <User name="Amrish Tembe" location="Ratnagiri"/>
+        <Link to="/">Go back to homepage</Link>
       </div>
     </>
   );
