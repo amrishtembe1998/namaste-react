@@ -31,7 +31,7 @@ const RestaurantMenu = () => {
       <h1>{name}</h1>
       <p>{cuisines.join(", ").replace(",", " ")}</p>
       <p>{costForTwoMessage}</p>
-      <h2>Menu</h2>
+      <h2>Recommended Menu</h2>
       <ul>
         {itemCards.map((item) => (
           <li key={item.card.info.id}>
