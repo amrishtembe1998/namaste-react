@@ -19,3 +19,23 @@
 - npx parcel index.html - For development builds
 - npx parcel build index.html - For production builds
 - npm run start === npm start (run keyword is optional)
+
+
+# Namaste Food
+
+/*
+ * Header
+ *   - Logo
+ *   - Nav Items
+ * Body
+ *   - Search
+ *   - Restaurant Container
+ *   - Restaurant Card
+ *      - Img
+ *      - Name of Restaurant, Star Rating, cuisine, delivery time, etc.
+ * Footer
+ *   - Copyright
+ *   - Links
+ *   - Address
+ *   - Contact
+ */
